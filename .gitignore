@@ -30,3 +30,14 @@
 *.exe
 *.out
 *.app
+
+# fCOPSS specific files
+*.so.*
+*.conf
+*.bak
+*.save
+src/rendezvous/rendezvous
+src/router/router
+src/rtctrl/rtctrl
+src/publisher/publish
+src/subscriber/subscribe

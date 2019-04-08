@@ -1,0 +1,15 @@
+[CLIENT]
+Protocol=tcp
+SubSendInterval=15
+
+[ROUTER]
+Port=9876
+ControlPort=9877
+StExpireTime=120
+
+[RP]
+Port=9878
+
+[TCP]
+ConnectionTimeout=3
+ReceiveTimeout=10
