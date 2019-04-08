@@ -1,5 +1,5 @@
-#fCOPSS
-
+fCOPSS
+===
 COPSS is Content-Oriented Pub/Sub System.  
 So, whait is 'f' ?  
 It's flexible, fundamental, feasible or somthing as you thought.
