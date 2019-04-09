@@ -3,17 +3,17 @@ INSTINCDIR=$(INSTDIR)/include
 INSTLIBDIR=$(INSTDIR)/lib
 INSTBINDIR=$(INSTDIR)/bin
 
-NDNINCDIR=/usr/local/include
-NDNLIBDIR=/usr/local/lib
+NDNINCS=$(shell pkg-config --cflags-only-I libndn-cxx)
+NDNCXXF=$(shell pkg-config pkg-config --cflags-only-other libndn-cxx)
+NDNLIBS=$(shell pkg-config --libs libndn-cxx)
 
 CXX=g++
 INCFLAGS=-I. -I../../include
-CPPFLAGS=$(INCFLAGS) -I$(NDNINCDIR)
-CXXFLAGS=-std=c++14 -Wall -O2 -g
-LDFLAGS=-L../lib
-LDFLAGS+=-L$(NDNLIBDIR) -L/usr/lib/x86_64-linux-gnu
-LDLIBS=-lfcopss -lndn-cxx
-LDLIBS+=-lboost_system -lpthread
+CPPFLAGS=$(INCFLAGS) $(NDNINCS)
+CXXFLAGS=-std=c++14 -Wall -O2 -g $(NDNCXXF)
+LDFLAGS=-L/usr/lib/x86_64-linux-gnu -L../lib
+LDLIBS=-lfcopss
+LDLIBS+=$(NDNLIBS)
 
 SRCS=main.cpp
 SRCS+=face.cpp

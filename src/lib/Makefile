@@ -3,17 +3,18 @@ INSTINCDIR=$(INSTDIR)/include
 INSTLIBDIR=$(INSTDIR)/lib
 INSTBINDIR=$(INSTDIR)/bin
 
-NDNINCDIR=/usr/local/include
-NDNLIBDIR=/usr/local/lib
+NDNINCS=$(shell pkg-config --cflags-only-I libndn-cxx)
+NDNCXXF=$(shell pkg-config pkg-config --cflags-only-other libndn-cxx)
+NDNLIBS=$(shell pkg-config --libs libndn-cxx)
 
 HDRDIR=../../include/fcopss
 
 CXX=g++
-CXXFLAGS=-std=c++14 -Wall -O2 -g -fPIC
+CXXFLAGS=-std=c++14 -Wall $(NDNCXXF) -O2 -g -fPIC
 INCFLAGS=-I. -I../../include
-CPPFLAGS=$(INCFLAGS) -I$(NDNINCDIR)
-LDFLAGS=-L$(NDNLIBDIR) -L/usr/lib/x86_64-linux-gnu
-LDLIBS=-lndn-cxx -lboost_system
+CPPFLAGS=$(INCFLAGS) $(NDNINCS)
+LDFLAGS=-L/usr/lib/x86_64-linux-gnu
+LDLIBS=$(NDNLIBS)
 
 AR=ar
 RANLIB=ranlib

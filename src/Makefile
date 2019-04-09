@@ -3,9 +3,6 @@ export INSTINCDIR=$(INSTDIR)/include
 export INSTLIBDIR=$(INSTDIR)/lib
 export INSTBINDIR=$(INSTDIR)/bin
 
-export NDNINCDIR=/usr/local/include
-export NDNLIBDIR=/usr/local/lib
-
 SUBDIR+=lib
 SUBDIR+=publisher
 SUBDIR+=subscriber
